@@ -8,10 +8,12 @@
 	<title>ChatRoom</title>
 </head>
 <body>
-	ChatRoom
-	<!-- <chat-message></chat-message> -->
-	<chat-log></chat-log>
-	<chat-composer></chat-composer>
+	<div class="container">
+		ChatRoom
+		<!-- <chat-message></chat-message> -->
+		<chat-log :messages="messages"></chat-log>
+		<chat-composer v-on:messagesent="addMsg"></chat-composer>
+	</div>
 </body>
 </html>
 

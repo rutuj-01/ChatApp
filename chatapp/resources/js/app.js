@@ -32,4 +32,21 @@ Vue.component('chat-composer',require('./components/ChatComposer.vue').default);
 
 const app = new Vue({
     el: '#app',
+    data: {
+    	messages:[
+				{
+					message: "HEY !",
+					user:"JOHN DOE"
+				},
+				{
+					message: "HELLO !!",
+					user:"JOHN DOE"
+				}
+				]
+    },
+    methods:{
+    	addMsg(message){
+    		this.messages.push(message);
+    	}
+    }
 });

@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <template>
 	<div>
 		<p> {{ msg.message }}</p>
@@ -11,3 +14,4 @@
 		props:['msg']
 	}	
 </script>
+@endsection

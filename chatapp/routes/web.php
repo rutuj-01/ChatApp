@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/chat',function() {
 	return view('chat');
-});
+})->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

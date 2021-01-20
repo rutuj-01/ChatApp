@@ -1,3 +1,4 @@
+
 <template>
 	<div>
 		<chat-message v-for="message in messages" :msg="message"></chat-message>

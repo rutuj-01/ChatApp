@@ -4,7 +4,7 @@
 <template>
 	<div>
 		<p> {{ msg.message }}</p>
-		<p>{{ msg.user }}</p>
+		<p>{{ msg.user.name }}</p>
 		<hr>
 	</div>
 </template>

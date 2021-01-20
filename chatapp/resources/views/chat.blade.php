@@ -9,10 +9,10 @@
 </head>
 <body>
 	<div class="container">
-		ChatRoom
+		<h1>ChatRoom</h1>
 		<!-- <chat-message></chat-message> -->
 		<chat-log :messages="messages"></chat-log>
-		<chat-composer v-on:messagesent="addMsg"></chat-composer>
+		<chat-composer current_user="{{ Auth::user()->name }}" v-on:messagesent="addMsg"></chat-composer>
 	</div>
 </body>
 </html>

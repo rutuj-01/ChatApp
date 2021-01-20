@@ -1917,6 +1917,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['current_user'],
   data: function data() {
     return {
       messageText: ''
@@ -1926,9 +1927,12 @@ __webpack_require__.r(__webpack_exports__);
     sendMessage: function sendMessage() {
       this.$emit('messagesent', {
         message: this.messageText,
-        user: 'John Bhau'
+        user: {
+          name: this.current_user
+        }
       });
       this.messageText = '';
+      console.log(name);
     }
   }
 });
@@ -1944,6 +1948,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -37699,7 +37704,7 @@ var render = function() {
   return _c("div", [
     _c("p", [_vm._v(" " + _vm._s(_vm.msg.message))]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.msg.user))]),
+    _c("p", [_vm._v(_vm._s(_vm.msg.user.name))]),
     _vm._v(" "),
     _c("hr")
   ])
@@ -49958,18 +49963,23 @@ Vue.component('chat-composer', __webpack_require__(/*! ./components/ChatComposer
 var app = new Vue({
   el: '#app',
   data: {
-    messages: [{
-      message: "HEY !",
-      user: "JOHN DOE"
-    }, {
-      message: "HELLO !!",
-      user: "JOHN DOE"
-    }]
+    messages: []
   },
   methods: {
     addMsg: function addMsg(message) {
       this.messages.push(message);
+      axios.post('/messages', message).then(function (res) {//
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/messages").then(function (res) {
+      _this.messages = res.data;
+    });
   }
 });
 
